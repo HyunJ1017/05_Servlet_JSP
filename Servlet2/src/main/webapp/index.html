@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servlet 복습</title>
+</head>
+
+<body>
+
+  <hr><hr>
+
+  <h1>>> 서블릿 복습</h1>
+
+  <hr>
+
+  <pre>
+    method="get" : 정보를 주소에담아서 서버에 보냄
+    method="post" : 데이터로 담아서 보냄
+
+    type="password" : 입력한 비밀번호를 가려줌
+  </pre>
+
+  <form action="/login" method="post">
+    <div>
+      ID : <input type="text" name="inputID">
+    </div>
+    <div>
+      PW : <input type="password" name="inputPW">
+    </div>
+    <div>
+      다음 문자를 똑같이 입력하세요 : <br>
+      <strong>헬로 월드</strong>
+      <input type="text" name="check">
+    </div>
+
+    <!-- button 태그의 type은 기본값이 "submit" -->
+     <button>로그인</button>
+  </form>
+
+  <hr>
+
+
+</body>
+</html>
