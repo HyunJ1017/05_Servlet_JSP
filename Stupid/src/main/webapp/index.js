@@ -1,4 +1,8 @@
 const btn = document.querySelector("#signupBtn");
+const pw = document.querySelector("#inputPw");
+const pwCh = document.querySelector("#inputPwCheck");
+
+pw.addEventListener("")
 
 btn.disabled = false;
 

@@ -1,4 +1,4 @@
-package edu.kh.momstuch.hamberger;
+package edu.kh.jsp2.controller;
 
 import java.io.IOException;
 
@@ -9,13 +9,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/test1_signup")
-public class TestSignup extends HttpServlet {
+@WebServlet("/el/check")
+public class checkSurvlet extends HttpServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String path = "/WEB-INF/view/signup_page.jsp";
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String path = "/WEB-INF/views/el/check.jsp";
 		RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 		dispatcher.forward(req, resp);
 	}

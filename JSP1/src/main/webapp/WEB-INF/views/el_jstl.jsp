@@ -1,3 +1,7 @@
+<%-- prefix : 접두사(앞에 붙는 단어/말)
+  만약 prefix="c"    ->  <c:if>
+  만약 prefix="core" ->  <core:if>
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +24,7 @@
   - Java 값을 HTML 형태로 쉽게 출력할 수 있다!
 
   - 기본 작성법 : \${key} (백슬래시는 제거하고 사용)
-
+                  ->ex) param.name / para.age ...
   </pre>
 
   <h3>전달받은 Parameter를 출력하는 방법</h3>
@@ -71,6 +75,10 @@
 
   <h3>JSTL c:if문 사용해 보기</h3>
 
+<%-- 
+<c:if ...> : jstl 구문, html에서 java 코드를 작성할수 있게해줌
+${param.""}:  el  구문, html에서 전달받은 파라미터를 사용할 수 있게해줌
+ --%>
   <c:if test="${param.age > 20}">
     <h3>성인입니다</h3>
   </c:if>
