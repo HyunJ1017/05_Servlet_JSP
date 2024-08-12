@@ -51,7 +51,7 @@
       </tr>
       <tr>
         <td>EL 구문으로 temp 파라미터 얻어오기 : </td>
-        <td>${param.str}</td>
+        <td>${param.temp}</td>
       </tr>
     </table> 
   </div>

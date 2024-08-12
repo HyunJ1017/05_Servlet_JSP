@@ -131,6 +131,9 @@ public class TodoListDaoImpl implements TodoListDao{
 		// 수정된 내용 + 이전 Todo의 완료 여부, 등록일을 담은 Todo 객체 생성 
 		Todo newTodo = new Todo();
 		
+		// TodoList 범위 초과 시 false 반환
+		if(index < 0 || index >= todoList.size()) return false;
+		
 		newTodo.setTitle(title);
 		newTodo.setDetail(detail);
 		newTodo.setComplete(todoList.get(index).isComplete());
