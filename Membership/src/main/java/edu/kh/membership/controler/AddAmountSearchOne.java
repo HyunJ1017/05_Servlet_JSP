@@ -1,7 +1,8 @@
 package edu.kh.membership.controler;
 
 import java.io.IOException;
-import java.util.List;
+
+import org.eclipse.jdt.internal.compiler.parser.RecoveredPackageVisibilityStatement;
 
 import edu.kh.membership.dto.MemberDTO;
 import edu.kh.membership.service.MemberService;
@@ -13,41 +14,29 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/membership/searchPhoneNum")
-public class SearchServlet extends HttpServlet{
-
+@WebServlet("/membership/addAmount/downOne")
+public class AddAmountSearchOne extends HttpServlet {
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		/**
-		 * 번호 입력받아서 검색리스트 + 등급배열 전달하기
-		 */
-		String searchPH = req.getParameter("searchPH");
+		String phone = req.getParameter("phone");
 		String[] gradeArray = {"일반", "동", "은", "금"};
 		
 		try {
 			MemberService service = new MemberServiceImple();
 			
-			List<MemberDTO> searchMembership = service.searchMembership(searchPH);
+			MemberDTO selectMember = service.searchMember(phone);
 			
 			HttpSession session = req.getSession();
+			session.setAttribute("selectMember", selectMember);
 			session.setAttribute("gradeArray", gradeArray);
-			session.setAttribute("searchMembership", searchMembership);
-			String result = null;
-			if(searchMembership==null) result = "검색결과 없음";
-			
-			session.setAttribute("message", result);
-			
 			resp.sendRedirect("/membership/addAmount");
 			
-		}catch(Exception e) {
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		
 	}
+
 }

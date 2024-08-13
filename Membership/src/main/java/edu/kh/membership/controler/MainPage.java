@@ -57,8 +57,6 @@ public class MainPage extends HttpServlet {
 		}
 		
 		
-		
-		
 		String path = "/WEB-INF/views/main.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
 		

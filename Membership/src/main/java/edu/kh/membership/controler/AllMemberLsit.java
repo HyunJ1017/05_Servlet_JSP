@@ -11,43 +11,33 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/membership/searchPhoneNum")
-public class SearchServlet extends HttpServlet{
-
+@WebServlet("/membership/allMemberList")
+public class AllMemberLsit extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		/**
-		 * 번호 입력받아서 검색리스트 + 등급배열 전달하기
-		 */
-		String searchPH = req.getParameter("searchPH");
 		String[] gradeArray = {"일반", "동", "은", "금"};
+		// 회원 전체리스트 불러다가 전달해주기
 		
 		try {
 			MemberService service = new MemberServiceImple();
 			
-			List<MemberDTO> searchMembership = service.searchMembership(searchPH);
+			List<MemberDTO> memberList = service.getAllMembers();
 			
-			HttpSession session = req.getSession();
-			session.setAttribute("gradeArray", gradeArray);
-			session.setAttribute("searchMembership", searchMembership);
-			String result = null;
-			if(searchMembership==null) result = "검색결과 없음";
+			req.setAttribute("memberList", memberList);
+			req.setAttribute("gradeArray", gradeArray);
 			
-			session.setAttribute("message", result);
+			String path = "/WEB-INF/views/allMemberList.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
 			
-			resp.sendRedirect("/membership/addAmount");
-			
-		}catch(Exception e) {
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
 		
 		
 		
-		
-		
-		
 	}
+
 }

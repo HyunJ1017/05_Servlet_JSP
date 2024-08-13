@@ -1,0 +1,15 @@
+
+td {
+  text-align: center;
+}
+
+ol {
+  list-style: upper-alpha;
+}
+
+#tableDiv {
+  background-color: #E0E5B6;
+  margin: 5px;
+  padding: 5px 50px;
+
+}
